@@ -6,23 +6,23 @@ provider "google" {
 }
 
 ### NETWORK
-## SUBNET
-resource "google_compute_network" "default" {
+data "google_compute_network" "default" {
   name                    = "default"
-  auto_create_subnetworks = "false"
+  project                 = "advancedterraform"
 }
 
+## SUBNET
 resource "google_compute_subnetwork" "default" {
   name                     = "subnet1"
   ip_cidr_range            = "10.127.0.0/20"
-  network                  = google_compute_network.default.self_link
+  network                  = data.google_compute_network.default.self_link
   region                   = "us-central1-a"
   private_ip_google_access = true
 }
 
 resource "google_compute_firewall" "default" {
   name    = "test-firewall"
-  network = google_compute_network.default.self_link
+  network = data.google_compute_network.default.self_link
 
   allow {
     protocol = "icmp"
@@ -50,7 +50,7 @@ resource "google_compute_instance" "nginx_instance" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = google_compute_network.default.self_link
+    network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.default.self_link
     access_config {
   
@@ -71,7 +71,7 @@ resource "google_compute_instance" "web1" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = google_compute_network.default.self_link
+    network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.default.self_link
     access_config {
   
@@ -91,7 +91,7 @@ resource "google_compute_instance" "web2" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = google_compute_network.default.self_link
+    network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.default.self_link
     access_config {
   
@@ -111,10 +111,31 @@ resource "google_compute_instance" "web3" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = google_compute_network.default.self_link
+    network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.default.self_link
     access_config {
   
     }
+  }  
+}
+
+## DB
+resource "google_compute_instance" "mysqldb" {
+  name         = "mysqldb"
+  machine_type = "f1-micro"
+  
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
   }
+
+  network_interface {
+    # A default network is created for all GCP projects
+    network = data.google_compute_network.default.self_link
+    subnetwork = google_compute_subnetwork.default.self_link
+    access_config {
+  
+    }
+  }  
 }
