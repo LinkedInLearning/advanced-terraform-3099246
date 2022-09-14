@@ -48,7 +48,6 @@ resource "google_compute_instance" "nginx_instance" {
   }
 
   network_interface {
-    # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
@@ -89,7 +88,6 @@ resource "google_compute_instance" "web2" {
   }
 
   network_interface {
-    # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
@@ -109,7 +107,6 @@ resource "google_compute_instance" "web3" {
   }
 
   network_interface {
-    # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
@@ -130,7 +127,6 @@ resource "google_compute_instance" "mysqldb" {
   }
 
   network_interface {
-    # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
     subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
