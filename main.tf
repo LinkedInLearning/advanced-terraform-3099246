@@ -8,15 +8,15 @@ provider "google" {
 ### NETWORK
 data "google_compute_network" "default" {
   name                    = "default"
-  project                 = "advancedterraform"
+  #project                 = "advancedterraform"
 }
 
 ## SUBNET
-resource "google_compute_subnetwork" "default" {
+resource "google_compute_subnetwork" "subnet-1" {
   name                     = "subnet1"
   ip_cidr_range            = "10.127.0.0/20"
   network                  = data.google_compute_network.default.self_link
-  region                   = "us-central1-a"
+  region                   = "us-central1"
   private_ip_google_access = true
 }
 
@@ -44,14 +44,14 @@ resource "google_compute_instance" "nginx_instance" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
-    subnetwork = google_compute_subnetwork.default.self_link
+    subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
   
     }
@@ -65,14 +65,14 @@ resource "google_compute_instance" "web1" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
-    subnetwork = google_compute_subnetwork.default.self_link
+    subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
   
     }
@@ -85,14 +85,14 @@ resource "google_compute_instance" "web2" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
-    subnetwork = google_compute_subnetwork.default.self_link
+    subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
   
     }
@@ -105,14 +105,14 @@ resource "google_compute_instance" "web3" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
-    subnetwork = google_compute_subnetwork.default.self_link
+    subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
   
     }
@@ -126,14 +126,14 @@ resource "google_compute_instance" "mysqldb" {
   
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
     network = data.google_compute_network.default.self_link
-    subnetwork = google_compute_subnetwork.default.self_link
+    subnetwork = google_compute_subnetwork.subnet-1.self_link
     access_config {
   
     }
