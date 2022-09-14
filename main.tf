@@ -8,7 +8,6 @@ provider "google" {
 ### NETWORK
 data "google_compute_network" "default" {
   name                    = "default"
-  #project                 = "advancedterraform"
 }
 
 ## SUBNET
