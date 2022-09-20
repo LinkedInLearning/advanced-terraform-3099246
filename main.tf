@@ -1,8 +1,43 @@
+### VARIABLES
+variable "project-id" {
+  type = string
+}
+
+variable "region" {
+  type = string
+  default = "us-central1"
+}
+
+variable "zone" {
+  type = string
+  default = "us-central1-a"
+}
+
+variable "subnet-name" {
+  type = string
+  default = "subnet1"
+}
+
+variable "subnet-cidr" {
+  type = string
+  default = "10.127.0.0/20"
+}
+
+variable "firewall-ports" {
+  type = list
+  default = ["80", "8080", "1000-2000", "22"]
+}
+
+variable "firewall-tags" {
+  type = list
+  default = ["web"]
+}
+
 ### PROVIDER
 provider "google" {
-  project = "advancedterraform"
-  region  = "us-central1"
-  zone    = "us-central1-a"
+  project = var.project-id
+  region  = var.region
+  zone    = var.zone
 }
 
 ### NETWORK
@@ -12,10 +47,10 @@ data "google_compute_network" "default" {
 
 ## SUBNET
 resource "google_compute_subnetwork" "subnet-1" {
-  name                     = "subnet1"
-  ip_cidr_range            = "10.127.0.0/20"
+  name                     = var.subnet-name
+  ip_cidr_range            = var.subnet-cidr
   network                  = data.google_compute_network.default.self_link
-  region                   = "us-central1"
+  region                   = var.region
   private_ip_google_access = true
 }
 
@@ -29,10 +64,10 @@ resource "google_compute_firewall" "default" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000", "22"]
+    ports    = var.firewall-ports
   }
 
-  source_tags = ["web"]
+  source_tags = var.firewall-tags
 }
 
 ### COMPUTE
