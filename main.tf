@@ -23,16 +23,6 @@ variable "subnet-cidr" {
   default = "10.127.0.0/20"
 }
 
-variable "firewall-ports" {
-  type = list
-  default = ["80", "8080", "1000-2000", "22"]
-}
-
-variable "firewall-tags" {
-  type = list
-  default = ["web"]
-}
-
 ### PROVIDER
 provider "google" {
   project = var.project-id
