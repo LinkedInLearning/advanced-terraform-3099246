@@ -23,6 +23,11 @@ variable "subnet-cidr" {
   default = "10.127.0.0/20"
 }
 
+variable "private_google_access" {
+  type = bool
+  default = true
+}
+
 ### PROVIDER
 provider "google" {
   project = var.project-id
@@ -41,7 +46,7 @@ resource "google_compute_subnetwork" "subnet-1" {
   ip_cidr_range            = var.subnet-cidr
   network                  = data.google_compute_network.default.self_link
   region                   = var.region
-  private_ip_google_access = true
+  private_ip_google_access = var.private_google_access
 }
 
 resource "google_compute_firewall" "default" {
