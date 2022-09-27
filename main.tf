@@ -29,10 +29,10 @@ resource "google_compute_firewall" "default" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000", "22"]
+    ports    = var.firewall-ports
   }
 
-  source_tags = ["web"]
+  source_tags = var.compute-source-tags
 }
 
 ### COMPUTE
