@@ -38,6 +38,10 @@ variable "compute-source-tags" {
     default = ["web"]
 }
 
+variable "target_environment" {
+  default = "DEV"
+}
+
 variable "environment_list" {
   type = list(string)
   default = ["DEV","QA","STAGE","PROD"]
@@ -64,23 +68,31 @@ variable "environment_machine_type" {
 }
 
 variable "environment_instance_settings" {
-  type = map(object({machine_type=string, tags=list}))
+  type = map(object({machine_type=string, labels=map(string)}))
   default = {
     "DEV" = {
       machine_type = "f1-micro"
-      tags = ["DEV"]
+      labels = {
+        environment = "DEV"
+      }
     },
    "QA" = {
       machine_type = "f1-micro"
-      tags = ["QA"]
+      labels = {
+        environment = "QA"
+      }
     },
     "STAGE" = {
       machine_type = "f1-micro"
-      tags = ["STAGE"]
+      labels = {
+        environment = "STAGE"
+      }
     },
     "PROD" = {
       machine_type = "f1-micro"
-      tags = ["PROD"]
+      labels = {
+        environment = "PROD"
+      }
     }
   }
 }
