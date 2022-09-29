@@ -50,10 +50,10 @@ variable "environment_list" {
 variable "environment_map" {
   type = map(string)
   default = {
-    "DEV" = "DEV",
-    "QA" = "QA",
-    "STAGE" = "STAGE",
-    "PROD" = "PROD"
+    "DEV" = "dev",
+    "QA" = "qa",
+    "STAGE" = "stage",
+    "PROD" = "prod"
   }
 }
 
@@ -73,25 +73,25 @@ variable "environment_instance_settings" {
     "DEV" = {
       machine_type = "f1-micro"
       labels = {
-        environment = "DEV"
+        environment = "dev"
       }
     },
    "QA" = {
       machine_type = "e2-micro"
       labels = {
-        environment = "QA"
+        environment = "qa"
       }
     },
     "STAGE" = {
       machine_type = "e2-micro"
       labels = {
-        environment = "STAGE"
+        environment = "stage"
       }
     },
     "PROD" = {
       machine_type = "e2-medium"
       labels = {
-        environment = "PROD"
+        environment = "prod"
       }
     }
   }
