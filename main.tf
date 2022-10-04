@@ -59,7 +59,7 @@ resource "google_compute_instance" "nginx_instance" {
   }
 }
 
-## WEB1
+# WEB1
 resource "google_compute_instance" "web1" {
   name         = "web1"
   machine_type = var.environment_machine_type[var.target_environment]
