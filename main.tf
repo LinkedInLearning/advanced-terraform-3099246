@@ -59,7 +59,7 @@ resource "google_compute_instance" "nginx_instance" {
   }
 }
 
-# WEBSERVERS
+## WEBSERVERS
 resource "google_compute_instance" "web-instances" {
   count = 3
   name         = "web${count.index}"
