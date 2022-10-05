@@ -7,7 +7,6 @@ output "webserver-ips" {
     value = google_compute_instance.web-instances[*].network_interface[0].network_ip
 }
 
-
 # output "web1-private-ip" {
 #     value = google_compute_instance.web1.network_interface[0].network_ip
 # }
