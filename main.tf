@@ -95,6 +95,7 @@ resource "google_compute_instance" "web-map-instances" {
   for_each = var.environment_instance_settings
   name = "${lower(each.key)}-web"
   machine_type = each.value.machine_type
+  labels = each.value.labels
 
   boot_disk {
     initialize_params {
