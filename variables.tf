@@ -3,6 +3,12 @@ variable "project-id" {
   type = string
 }
 
+variable "org_id" {
+  type = string
+  default = ""
+  sensitive = true
+}
+
 variable "region" {
   type = string
   default = "us-central1"
