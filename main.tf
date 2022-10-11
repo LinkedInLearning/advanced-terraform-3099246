@@ -1,6 +1,6 @@
 ### PROVIDER
 provider "google" {
-  project = "advancedterraform"
+  project = "advancedterraform" #replace this with your project-id
   region  = "us-central1"
   zone    = "us-central1-a"
 }
