@@ -13,6 +13,17 @@ variable "zone" {
   default = "us-central1-a"
 }
 
+variable "dbusername" {
+  type = string
+  default = "db-user"
+  sensitive = true
+}
+
+variable "dbpassword" {
+  type = string
+  sensitive = true
+}
+
 variable "subnet-name" {
   type = string
   default = "subnet1"
