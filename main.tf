@@ -137,3 +137,22 @@ resource "google_compute_instance" "mysqldb" {
     subnetwork = google_compute_subnetwork.subnet-1.self_link
   }  
 }
+
+## CLOUD SQL
+resource "google_sql_database_instance" "cloudsql" {
+  name             = "web-app-db"
+  database_version = "MYSQL_8_0"
+  region           = "us-central1"
+
+  settings {
+    tier = "db-f1-micro"
+  }
+  deletion_protection = false
+}
+
+## CLOUD SQL USER
+resource "google_sql_user" "users" {
+  name     = "db-user"
+  instance = google_sql_database_instance.cloudsql.name
+  password = "notsecurepassword"
+}
