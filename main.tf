@@ -90,8 +90,6 @@ resource "google_compute_instance" "web-instances" {
   }
 }
 
-
-
 ## DB
 resource "google_compute_instance" "mysqldb" {
   name         = "mysqldb"
