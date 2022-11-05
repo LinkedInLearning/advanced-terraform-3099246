@@ -6,6 +6,7 @@ module "project-factory-dev" {
   name = "myapp-dev"
   random_project_id = true
   activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com"]
+  auto_create_network = true
 }
 
 module "project-factory-qa" {
@@ -16,6 +17,7 @@ module "project-factory-qa" {
   name = "myapp-qa"
   random_project_id = true
   activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com"]
+  auto_create_network = true
 }
 
 module "dev_service_account" {
@@ -26,8 +28,8 @@ module "dev_service_account" {
   generate_keys = true
 }
 
-resource "google_service_account_iam_member" "dev-owner" {
-    service_account_id = module.dev_service_account.service_accounts_map["dev"].name
+resource "google_project_iam_member" "dev-owner" {
+    project = module.project-factory-dev.project_id
     role = "roles/owner"
     member = "serviceAccount:${module.dev_service_account.service_accounts_map["dev"].email}"
 }
@@ -40,8 +42,8 @@ module "qa_service_account" {
   generate_keys = true
 }
 
-resource "google_service_account_iam_member" "qa-owner" {
-    service_account_id = module.qa_service_account.service_accounts_map["qa"].name
+resource "google_project_iam_member" "qa-owner" {
+    project = module.project-factory-qa.project_id
     role = "roles/owner"
     member = "serviceAccount:${module.qa_service_account.service_accounts_map["qa"].email}"
 }
