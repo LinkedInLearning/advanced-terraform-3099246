@@ -32,7 +32,7 @@ resource "tfe_variable" "qa_target_environment" {
 
 resource "tfe_variable" "dev_google_credentials" {
     key = "GOOGLE_CREDENTIALS"
-    value = ""
+    value = module.dev_service_account.keys["dev"]
     category = "env"
     workspace_id = tfe_workspace.dev.id
     sensitive = true
@@ -41,7 +41,7 @@ resource "tfe_variable" "dev_google_credentials" {
 
 resource "tfe_variable" "qa_google_credentials" {
     key = "GOOGLE_CREDENTIALS"
-    value = ""
+    value = module.qa_service_account.keys["qa"]
     category = "env"
     workspace_id = tfe_workspace.qa.id
     sensitive = true
