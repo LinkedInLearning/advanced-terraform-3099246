@@ -1,5 +1,5 @@
 resource "tfe_oauth_client" "oauth" {
-    organization = var.organization
+    organization = var.tfcloud_organization
     api_url = "https://api.github.com"
     http_url = "https://github.com"
     oauth_token = var.github_oauth_token
@@ -8,7 +8,7 @@ resource "tfe_oauth_client" "oauth" {
 
 resource "tfe_workspace" "dev" {
     name = "app-dev"
-    organization = var.organization
+    organization = var.tfcloud_organization
     tag_names = ["app", "dev-environment"]
     allow_destroy_plan = true
     auto_apply = true
@@ -23,7 +23,7 @@ resource "tfe_workspace" "dev" {
 
 resource "tfe_workspace" "qa" {
     name = "app-qa"
-    organization = var.organization
+    organization = var.tfcloud_organization
     tag_names = ["app", "qa-environment"]
     allow_destroy_plan = true
     auto_apply = true
