@@ -13,3 +13,4 @@ npm-debug.log
 .terraform
 .DS_Store
 *.hcl
+tf_sa_key
