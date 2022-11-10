@@ -69,3 +69,4 @@ resource "google_redis_instance" "redis" {
   location_id = var.zone
   authorized_network = data.google_compute_network.default.id
 }
+
