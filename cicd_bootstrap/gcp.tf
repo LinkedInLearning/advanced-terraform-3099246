@@ -5,7 +5,7 @@ module "project-factory-dev" {
   billing_account = var.gcp_billing_account
   name = "myapp-dev"
   random_project_id = true
-  activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com"]
+  activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com", "redis.googleapis.com"]
   auto_create_network = true
 }
 
@@ -16,7 +16,7 @@ module "project-factory-qa" {
   billing_account = var.gcp_billing_account
   name = "myapp-qa"
   random_project_id = true
-  activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com"]
+  activate_apis = ["iam.googleapis.com", "cloudresourcemanager.googleapis.com", "redis.googleapis.com"]
   auto_create_network = true
 }
 
