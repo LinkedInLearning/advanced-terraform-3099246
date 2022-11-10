@@ -27,3 +27,13 @@ resource "google_compute_firewall" "default" {
 
   source_tags = var.compute-source-tags
 }
+
+resource "google_redis_instance" "redis" {
+  name = "customer-id-cache"
+  tier = "STANDARD_HA"
+  memory_size_gb = 1
+
+  location_id = var.zone
+  authorized_network = data.google_compute_network.default.id
+  display_name = "Customer ID Cache"
+}
