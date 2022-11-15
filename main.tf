@@ -40,7 +40,8 @@ resource "google_compute_firewall" "default" {
 resource "google_compute_instance" "nginx_instance" {
   name         = "nginx-proxy"
   machine_type = "f1-micro"
-  
+  tags = var.compute-source-tags
+
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"

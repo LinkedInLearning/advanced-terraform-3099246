@@ -64,7 +64,7 @@ variable "environment_machine_type" {
 }
 
 variable "environment_instance_settings" {
-  type = map(object({machine_type=string, tags=list}))
+  type = map(object({machine_type=string, tags=list(string)}))
   default = {
     "DEV" = {
       machine_type = "f1-micro"
