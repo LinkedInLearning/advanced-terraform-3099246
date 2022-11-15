@@ -43,6 +43,7 @@ resource "google_compute_instance" "nginx_instance" {
   labels = {
     environment = var.environment_map[var.target_environment]
   }
+  tags = var.compute-source-tags
  
   boot_disk {
     initialize_params {
