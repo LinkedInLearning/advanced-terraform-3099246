@@ -38,6 +38,10 @@ variable "compute-source-tags" {
     default = ["web"]
 }
 
+variable "target_environment" {
+  default = "DEV"
+}
+
 variable "environment_list" {
   type = list(string)
   default = ["DEV","QA","STAGE","PROD"]
