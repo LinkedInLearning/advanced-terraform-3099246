@@ -8,6 +8,4 @@ module "service_accounts" {
     "${var.project-id}=>roles/viewer",
     "${var.project-id}=>roles/storage.objectViewer",
   ]
-  grant_billing_role = true
-  org_id = var.org_id
 }
