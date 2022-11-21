@@ -1,6 +1,6 @@
 resource "tfe_variable" "dev_project_id" {
     key = "project-id"
-    value = var.dev-project-id #module.project-factory-dev.project_id
+    value = var.dev-project-id
     category = "terraform"
     workspace_id = tfe_workspace.dev.id
     description = "DEV GCP ProjectID"
@@ -8,7 +8,7 @@ resource "tfe_variable" "dev_project_id" {
 
 resource "tfe_variable" "qa_project_id" {
     key = "project-id"
-    value = var.qa-project-id #module.project-factory-qa.project_id
+    value = var.qa-project-id
     category = "terraform"
     workspace_id = tfe_workspace.qa.id
     description = "QA GCP ProjectID"
