@@ -1,6 +1,6 @@
 resource "tfe_variable" "dev_project_id" {
     key = "project-id"
-    value = module.project-factory-dev.project_id
+    value = var.dev-project-id #module.project-factory-dev.project_id
     category = "terraform"
     workspace_id = tfe_workspace.dev.id
     description = "DEV GCP ProjectID"
@@ -8,7 +8,7 @@ resource "tfe_variable" "dev_project_id" {
 
 resource "tfe_variable" "qa_project_id" {
     key = "project-id"
-    value = module.project-factory-qa.project_id
+    value = var.qa-project-id #module.project-factory-qa.project_id
     category = "terraform"
     workspace_id = tfe_workspace.qa.id
     description = "QA GCP ProjectID"
@@ -32,7 +32,7 @@ resource "tfe_variable" "qa_target_environment" {
 
 resource "tfe_variable" "dev_google_credentials" {
     key = "GOOGLE_CREDENTIALS"
-    value = replace(module.dev_service_account.keys["dev"], "/\\n/", "")
+    value = replace(file("tf_sa_key_dev"), "/\\n/", "")
     category = "env"
     workspace_id = tfe_workspace.dev.id
     sensitive = true
@@ -41,7 +41,7 @@ resource "tfe_variable" "dev_google_credentials" {
 
 resource "tfe_variable" "qa_google_credentials" {
     key = "GOOGLE_CREDENTIALS"
-    value = replace(module.qa_service_account.keys["qa"], "/\\n/", "")
+    value = replace(file("tf_sa_key_qa"), "/\\n/", "")
     category = "env"
     workspace_id = tfe_workspace.qa.id
     sensitive = true
