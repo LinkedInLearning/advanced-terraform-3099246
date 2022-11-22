@@ -15,7 +15,7 @@ resource "tfe_workspace" "dev" {
     queue_all_runs = false
     file_triggers_enabled = false
     vcs_repo {
-      identifier = "dswersky/advanced-terraform-3099246"
+      identifier = var.vcs-identifier
       branch = "04_05_dev"
       oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
     }
@@ -30,7 +30,7 @@ resource "tfe_workspace" "qa" {
     queue_all_runs = false
     file_triggers_enabled = false
     vcs_repo {
-      identifier = "dswersky/advanced-terraform-3099246"
+      identifier = var.vcs-identifier
       branch = "04_05_qa"
       oauth_token_id = tfe_oauth_client.oauth.oauth_token_id
     }
