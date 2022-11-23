@@ -21,3 +21,8 @@ variable "qa-project-id" {
 variable "vcs-identifier" {
   
 }
+
+variable "enable-services" {
+  type = list
+  default = ["iam.googleapis.com","cloudresourcemanager.googleapis.com", "compute.googleapis.com", "redis.googleapis.com"]
+}

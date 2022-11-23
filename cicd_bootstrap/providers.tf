@@ -1,3 +1,4 @@
+# https://developer.hashicorp.com/terraform/language/providers/requirements
 terraform {
   required_providers {
     tfe = {
