@@ -15,7 +15,6 @@ resource "google_compute_instance" "nginx_instance" {
   }
   tags = var.compute-source-tags
   
-  
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"
