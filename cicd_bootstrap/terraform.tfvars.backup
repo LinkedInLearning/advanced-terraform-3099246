@@ -1,5 +1,6 @@
 tfcloud_organization = ""
 tf_cloud_token = ""
 github_oauth_token = ""
-gcp_billing_account = ""
-gcp_organization_id = ""
+dev-project-id = ""
+qa-project-id = ""
+vcs-identifier = ""
