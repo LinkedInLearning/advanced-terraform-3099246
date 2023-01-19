@@ -1,7 +1,10 @@
 # Advanced Terraform
-This is the repository for the LinkedIn Learning course Advanced Terraform. The full course is available from [LinkedIn Learning][lil-course-url]....
+This is the repository for the LinkedIn Learning course Advanced Terraform. The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
+![Advanced Terraform][lil-thumbnail-url] 
+
+Terraform simplifies and accelerates the configuration and deployment of infrastructure, including cloud-based environments. In this project-based course, David Swersky highlights a series of advanced Terraform use cases. David goes over the steps to create a new Terraform configuration, then explores intermediate concepts like variables, looping, expression and functions, modules, and more. He explains advanced concepts, such as custom modules, defining a remote state backend, and deploying configurations across multiple environments. The course is capped with an example model for a complete Continuous Integration/Continuous Delivery pipeline for deploying Terraform configurations.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -20,15 +23,16 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
 
+### Instructor
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+David Swersky 
+                            
+DevOps and enterprise architect
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+                            
 
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/david-swersky).
+
+[lil-course-url]: https://www.linkedin.com/learning/advanced-terraform-18720794?dApp=59033956
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/C560DAQGfrjsVMJJlFg/learning-public-crop_675_1200/0/1673639139822?e=2147483647&v=beta&t=Po6XcY4t4DcIZ__O-16BY24eHt0MPhPODwJl90L1rs0
