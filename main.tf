@@ -61,3 +61,5 @@ resource "google_compute_instance" "mysqldb" {
     subnetwork = google_compute_subnetwork.subnet-1.self_link
   }  
 }
+
+###redis
