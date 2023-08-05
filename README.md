@@ -1,3 +1,4 @@
+
 # Advanced Terraform
 This is the repository for the LinkedIn Learning course Advanced Terraform. The full course is available from [LinkedIn Learning][lil-course-url].
 
