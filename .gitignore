@@ -5,7 +5,7 @@ npm-debug.log
 *.sh
 *.terraform
 *.pem
-*.tfvars
+terraform.tfvars
 *.tfplan
 *.tfstate
 *.tfstate.backup
